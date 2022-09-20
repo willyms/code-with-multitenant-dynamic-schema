@@ -1,0 +1,33 @@
+quarkus:
+  http:
+    port: '8080'
+  datasource:
+    db-kind: postgresql
+    password: postgres
+    username: postgres
+    jdbc:
+      max-size: 8
+      min-size: 2
+      initial-size: 2
+      url: jdbc:postgresql://localhost:5432/db
+      driver: org.postgresql.Driver
+  hibernate-orm:
+    log:
+      sql: true
+      bind-param: true
+      format-sql: true
+    packages: org.acme.entites
+    multitenant: SCHEMA
+  log:
+    level: INFO
+    min-level: INFO
+  transaction-manager:
+    default-transaction-timeout: 300S
+  flyway:
+    migrate-at-start: false
+    baseline-on-migrate: false
+    baseline-version: 1.0.0
+    create-schemas: true
+    clean-at-start: false
+    schemas: public
+    locations: db/migration/public

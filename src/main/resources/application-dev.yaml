@@ -1,0 +1,4 @@
+quarkus:
+  log:
+    level: DEBUG
+    min-level: DEBUG
